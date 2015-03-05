@@ -21,15 +21,17 @@ package de.linearbits.subframe.graph;
  * Represents labels for a plot
  * 
  * @author Fabian Prasser
- *
+ * 
  */
 public class Labels {
 
-	/** Label*/
+    /** Label */
     public final String x;
-    /** Label*/
+    /** Label */
     public final String y;
-    /** Label*/
+    /** Label */
+    public final String y2;
+    /** Label */
     public final String z;
 
     /**
@@ -39,6 +41,7 @@ public class Labels {
     public Labels(String x) {
         this.x = x;
         this.y = "";
+        this.y2 = "";
         this.z = "";
     }
 
@@ -50,6 +53,7 @@ public class Labels {
     public Labels(String x, String y) {
         this.x = x;
         this.y = y;
+        this.y2 = "";
         this.z = "";
     }
 
@@ -62,6 +66,21 @@ public class Labels {
     public Labels(String x, String y, String z) {
         this.x = x;
         this.y = y;
+        this.y2 = "";
+        this.z = z;
+    }
+
+    /**
+     * Creates a new instance
+     * @param x
+     * @param y
+     * @param y2
+     * @param z
+     */
+    public Labels(String x, String y, String y2, String z) {
+        this.x = x;
+        this.y = y;
+        this.y2 = y2;
         this.z = z;
     }
 }

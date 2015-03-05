@@ -82,7 +82,7 @@ public abstract class GnuPlot<T extends Plot<?>> {
      * @throws IOException
      */
     public static void
-    plot(Plot<?> plot, GnuPlotParams params, String filename, boolean keepSources) throws IOException {
+            plot(Plot<?> plot, GnuPlotParams params, String filename, boolean keepSources) throws IOException {
 
         // Create gnuplot
         GnuPlot<?> gPlot = null;
@@ -120,7 +120,7 @@ public abstract class GnuPlot<T extends Plot<?>> {
         try {
             plot(filename);
         } catch (IOException e) {
-            if (!keepSources){
+            if (!keepSources) {
                 new File(filename + ".gp").delete();
                 new File(filename + ".dat").delete();
             }
@@ -252,11 +252,11 @@ public abstract class GnuPlot<T extends Plot<?>> {
         }
     }
 
-    /** The plot to render*/
+    /** The plot to render */
     protected T             plot;
-    /** The parameters to use*/
+    /** The parameters to use */
     protected GnuPlotParams params;
-    
+
     /**
      * Constructs a new instance
      * @param plot
@@ -267,12 +267,12 @@ public abstract class GnuPlot<T extends Plot<?>> {
         this.params = params;
     }
 
-    /** Returns the data*/
+    /** Returns the data */
     protected abstract String getData();
 
-    /** Returns the GnuPlot source code*/
+    /** Returns the GnuPlot source code */
     protected abstract String getSource(String filename);
-    
+
     /**
      * Returns a list of generic gnuplot commands, which are similar for all plots
      * @param filename
@@ -280,28 +280,31 @@ public abstract class GnuPlot<T extends Plot<?>> {
      * @return
      */
     protected List<String> getGenericCommands(String filename, Plot<?> plot) {
-        
+
         List<String> gpCommands = new ArrayList<String>();
-        
-        gpCommands.add("set terminal postscript eps enhanced "+
+
+        gpCommands.add("set terminal postscript eps " +
+                       (params.enhance ? "enhanced" : "noenhanced") + " " +
                        (params.colorize ? "color" : "monochrome") +
-                       " size " + params.width + "," + params.height +  
-                       (params.font != null ? " font '" +params.font + "'" : ""));
+                       " size " + params.width + "," + params.height +
+                       (params.font != null ? " font '" + params.font + "'" : ""));
         gpCommands.add("set output \"" + filename + ".eps\"");
-        
+
         if (params.size != null) {
             gpCommands.add("set size " + params.size);
         }
-        
+
         if (params.ratio != null) {
             gpCommands.add("set size ratio " + params.ratio);
         }
-        
-        gpCommands.add("set offsets " + params.offsetLeft + " , " + params.offsetRight + ", " + params.offsetTop + ", " + params.offsetBottom + " ");
+
+        gpCommands.add("set offsets " + params.offsetLeft + " , " + params.offsetRight + ", " + params.offsetTop + ", " +
+                       params.offsetBottom + " ");
 
         gpCommands.add("set title \"" + plot.getTitle() + "\"");
         gpCommands.add("set xlabel \"" + plot.getLabels().x + "\"");
         gpCommands.add("set ylabel \"" + plot.getLabels().y + "\"");
+        gpCommands.add("set y2label \"" + plot.getLabels().y2 + "\"");
 
         if (params.keypos == KeyPos.NONE) {
             gpCommands.add("unset key");
@@ -318,7 +321,7 @@ public abstract class GnuPlot<T extends Plot<?>> {
         if (params.minZ != null && params.maxZ != null) {
             gpCommands.add("set zrange[" + params.minZ + ":" + params.maxZ + "]");
         }
-        
+
         if (params.minY != null && params.maxY == null) {
             gpCommands.add("set yrange[" + params.minY + ":]");
         }
@@ -327,6 +330,10 @@ public abstract class GnuPlot<T extends Plot<?>> {
         }
         if (params.minZ != null && params.maxZ == null) {
             gpCommands.add("set zrange[" + params.minZ + ":]");
+        }
+
+        if (params.y2tics != null) {
+            gpCommands.add("set y2tics " + params.y2tics);
         }
 
         if (params.logX) {
