@@ -285,7 +285,8 @@ public abstract class GnuPlot<T extends Plot<?>> {
 
         gpCommands.add("set terminal postscript eps " +
                        (params.enhance ? "enhanced" : "noenhanced") + " " +
-                       (params.colorize ? "color" : "monochrome") +
+                       (params.colorize ? "color" : "monochrome") + " " +
+                       (params.solid ? "solid" : "") + " " +
                        " size " + params.width + "," + params.height +
                        (params.font != null ? " font '" + params.font + "'" : ""));
         gpCommands.add("set output \"" + filename + ".eps\"");

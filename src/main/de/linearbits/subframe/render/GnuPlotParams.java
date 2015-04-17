@@ -75,6 +75,9 @@ public class GnuPlotParams {
     /** Should the terminal be enhanced */
     public boolean  enhance                 = true;
 
+    /** Should all lines be solid */
+    public boolean  solid                   = false;
+
     /** Logarithmic x axis */
     public Boolean  logX                    = false;
     /** Logarithmic y axis */
