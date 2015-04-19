@@ -27,6 +27,7 @@ public class GnuPlotParams {
      * The style
      */
     public enum Style {
+        LINES("lines"),
         LINESPOINTS("linespoints"),
         STEPS("steps");
 

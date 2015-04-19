@@ -71,7 +71,7 @@ class GnuPlotLines extends GnuPlot<PlotLines> {
         List<String> gpCommands = getGenericCommands(filename, plot);
 
         if (plot.isErrorBars()) {
-            gpCommands.add("plot '" + filename + ".dat' using 1:2 with " + params.lineStyle.val + " lw 1.5 t \"\", \\");
+            gpCommands.add("plot '" + filename + ".dat' using 1:2 with lines lw 1.5 t \"\", \\");
             gpCommands.add("'' using 1:2:3 with errorbars t \"\"");
         } else {
             gpCommands.add("plot '" + filename + ".dat' using 1:2 with " + params.lineStyle.val + " lw 3.5 ps 1.5 t \"\"");
