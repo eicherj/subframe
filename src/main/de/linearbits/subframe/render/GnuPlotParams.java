@@ -23,6 +23,19 @@ package de.linearbits.subframe.render;
  * @author Fabian Prasser
  */
 public class GnuPlotParams {
+    /**
+     * The style
+     */
+    public enum Style {
+        LINESPOINTS("linespoints"),
+        STEPS("steps");
+
+        protected final String val;
+
+        private Style(String val) {
+            this.val = val;
+        }
+    }
 
     /**
      * The position of the key
@@ -77,6 +90,9 @@ public class GnuPlotParams {
 
     /** Should all lines be solid */
     public boolean  solid                   = false;
+
+    /** The line style */
+    public Style    lineStyle               = Style.LINESPOINTS;
 
     /** Logarithmic x axis */
     public Boolean  logX                    = false;
