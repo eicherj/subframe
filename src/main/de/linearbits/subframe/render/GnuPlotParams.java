@@ -24,16 +24,16 @@ package de.linearbits.subframe.render;
  */
 public class GnuPlotParams {
     /**
-     * The style
+     * The line style
      */
-    public enum Style {
+    public enum LineStyle {
         LINES("lines"),
         LINESPOINTS("linespoints"),
         STEPS("steps");
 
         protected final String val;
 
-        private Style(String val) {
+        private LineStyle(String val) {
             this.val = val;
         }
     }
@@ -93,7 +93,7 @@ public class GnuPlotParams {
     public boolean  solid                   = false;
 
     /** The line style */
-    public Style    lineStyle               = Style.LINESPOINTS;
+    public LineStyle    lineStyle               = LineStyle.LINESPOINTS;
 
     /** Logarithmic x axis */
     public Boolean  logX                    = false;
