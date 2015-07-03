@@ -113,32 +113,6 @@ public class CSVFile {
     }
 
     /**
-     * Adds a column to header1
-     * @param value
-     */
-    public void addHeader1Column(String value) {
-        String[] newHeader1 = new String[header1.length + 1];
-        for (int i = 0; i < header1.length; i++) {
-            newHeader1[i] = header1[i];
-        }
-        newHeader1[newHeader1.length - 1] = value;
-        header1 = newHeader1;
-    }
-
-    /**
-     * Adds a column to header2
-     * @param value
-     */
-    public void addHeader2Column(String value) {
-        String[] newHeader2 = new String[header2.length + 1];
-        for (int i = 0; i < header2.length; i++) {
-            newHeader2[i] = header2[i];
-        }
-        newHeader2[newHeader2.length - 1] = value;
-        header2 = newHeader2;
-    }
-
-    /**
      * Adds a line
      * @param line
      */
