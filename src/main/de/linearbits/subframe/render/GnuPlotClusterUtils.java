@@ -53,6 +53,16 @@ class GnuPlotClusterUtils {
      * @return
      */
     protected static String getData(Plot<Series3D> plot) {
+        return getData(plot, false);
+    }
+
+    /**
+     * Creates clustered data for the given plot
+     * @param plot
+     * @param acceptMissingValues
+     * @return
+     */
+    protected static String getData(Plot<Series3D> plot, boolean acceptMissingValues) {
 
         // Transform
         Map<String, Map<String, String>> map = getTransformedData(plot);
@@ -82,8 +92,14 @@ class GnuPlotClusterUtils {
                 data[indexes.get(value.getKey())] = value.getValue();
             }
             for (int i = 0; i < data.length; i++) {
-                buffer.append(data[i] != null ? data[i] : "-");
-                buffer.append(i < data.length - 1 ? " " : "\n");
+                if (data[i] == null) {
+                    if (acceptMissingValues) buffer.append("-");
+                    else throw new RuntimeException("Missing value for (" + entry.getKey() + ")");
+                } else {
+                    buffer.append(data[i]);
+                }
+                if (i < data.length - 1) buffer.append(" ");
+                else buffer.append("\n");
             }
         }
 
@@ -112,8 +128,10 @@ class GnuPlotClusterUtils {
             if (!map.containsKey(point.x)) {
                 map.put(point.x, new LinkedHashMap<String, String>());
             }
-            if (map.get(point.x).containsKey(point.y)) { throw new RuntimeException("Duplicate value for (" + point.x +
-                                                                                    ", " + point.y + ")"); }
+            if (map.get(point.x).containsKey(point.y)) {
+                throw new RuntimeException("Duplicate value for (" + point.x +
+                                           ", " + point.y + ")");
+            }
             map.get(point.x).put(point.y, point.z);
         }
 

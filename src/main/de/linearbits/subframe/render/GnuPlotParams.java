@@ -78,82 +78,82 @@ public class GnuPlotParams {
     }
 
     /** colourValues. */
-    public String[] colors                  = new String[] { "1D4599", "11AD34", "E62B17",
-                                            "E69F17", "2F3F60", "2F6C3D", "8F463F", "8F743F", "031A49",
-                                            "025214", "6D0D03", "6D4903", "7297E6", "67EB84", "F97A6D",
-                                            "F9C96D", "A9BDE6", "A6EBB5", "F9B7B0", "F9E0B0" };
+    public String[]  colors                  = new String[] { "1D4599", "11AD34", "E62B17",
+                                             "E69F17", "2F3F60", "2F6C3D", "8F463F", "8F743F", "031A49",
+                                             "025214", "6D0D03", "6D4903", "7297E6", "67EB84", "F97A6D",
+                                             "F9C96D", "A9BDE6", "A6EBB5", "F9B7B0", "F9E0B0" };
 
     /** Should the plot be colorized */
-    public boolean  colorize                = false;
+    public boolean   colorize                = false;
 
     /** Should the terminal be enhanced */
-    public boolean  enhance                 = true;
+    public boolean   enhance                 = true;
 
     /** Should all lines be solid */
-    public boolean  solid                   = false;
+    public boolean   solid                   = false;
 
     /** The line style */
-    public LineStyle    lineStyle               = LineStyle.LINESPOINTS;
+    public LineStyle lineStyle               = LineStyle.LINESPOINTS;
 
     /** Logarithmic x axis */
-    public Boolean  logX                    = false;
+    public Boolean   logX                    = false;
     /** Logarithmic y axis */
-    public Boolean  logY                    = false;
+    public Boolean   logY                    = false;
     /** Logarithmic z axis */
-    public Boolean  logZ                    = false;
+    public Boolean   logZ                    = false;
 
     /** Minimum value on the x axis */
-    public Double   minX                    = null;
+    public Double    minX                    = null;
     /** Minimum value on the y axis */
-    public Double   minY                    = null;
+    public Double    minY                    = null;
     /** Minimum value on the z axis */
-    public Double   minZ                    = null;
+    public Double    minZ                    = null;
 
     /** Maximum value on the x axis */
-    public Double   maxX                    = null;
+    public Double    maxX                    = null;
     /** Maximum value on the y axis */
-    public Double   maxY                    = null;
+    public Double    maxY                    = null;
     /** Maximum value on the z axis */
-    public Double   maxZ                    = null;
+    public Double    maxZ                    = null;
 
     /** String specifying the y2tics */
-    public String   y2tics                  = null;
+    public String    y2tics                  = null;
 
     /** The size */
-    public Double   size                    = 0.6d;
+    public Double    size                    = 0.6d;
     /** The width/height ratio of the plot */
-    public Double   ratio                   = null;
+    public Double    ratio                   = null;
     /** The width of the output (inches) */
-    public double   width                   = 5d;
+    public double    width                   = 5d;
     /** The height of the output (inches) */
-    public double   height                  = 3.5d;
+    public double    height                  = 3.5d;
 
     /** Offset */
-    public double   offsetLeft              = 0;
+    public double    offsetLeft              = 0;
     /** Offset */
-    public double   offsetRight             = 0;
+    public double    offsetRight             = 0;
     /** Offset */
-    public double   offsetBottom            = 0;
+    public double    offsetBottom            = 0;
     /** Offset */
-    public double   offsetTop               = 0;
+    public double    offsetTop               = 0;
 
     /** The width of the box */
-    public Double   boxwidth                = 0.75d;
+    public Double    boxwidth                = 0.75d;
     /** Rotation of the xtics in degrees */
-    public Integer  rotateXTicks            = null;
+    public Integer   rotateXTicks            = null;
     /** X-ticks are categorical */
-    public Boolean  categorialX             = false;
+    public Boolean   categorialX             = false;
     /** Grid */
-    public Boolean  grid                    = true;
+    public Boolean   grid                    = true;
     /** The keypos */
-    public KeyPos   keypos                  = KeyPos.TOP_RIGHT;
+    public KeyPos    keypos                  = KeyPos.TOP_RIGHT;
     /** Print the actual values into the plot */
-    public Boolean  printValues             = false;
+    public Boolean   printValues             = false;
     /** Format string for values in the plot */
-    public String   printValuesFormatString = "%.2f";
+    public String    printValuesFormatString = "%.2f";
     /** Offset for labels in the plot */
-    public double   printValuesOffset       = +0.5d;
+    public double    printValuesOffset       = +0.5d;
 
     /** Font specification */
-    public String   font                    = null;
+    public String    font                    = null;
 }
