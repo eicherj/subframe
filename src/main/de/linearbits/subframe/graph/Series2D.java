@@ -247,4 +247,8 @@ public class Series2D extends Series<Point2D> {
             data.add(new Point2D(entry.getKey(), String.valueOf(entry.getValue().getValue())));
         }
     }
+
+	public Series2D() {
+		// Empty by design
+	}
 }

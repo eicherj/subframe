@@ -303,4 +303,8 @@ public class Series3D extends Series<Point3D>{
                                  String.valueOf(entry.getValue().getValue())));
         }
     }
+
+	public Series3D() {
+		// Empty by design
+	}
 }
