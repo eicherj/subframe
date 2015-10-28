@@ -78,12 +78,10 @@ public class GnuPlotParams {
     }
 
     /** colourValues. */
-    public String[]  colors                  = new String[] {
-    										 "B6EED8", "92CDDC", "31849B",
-                                             "E6EED6", "C2D69B", "76923C", 
-                                             "FDE9D9", "FBD4B4", "FABF8F", "F5801F", "C35D09", "984806",
-                                             "7297E6", "67EB84", "F97A6D",
-                                             "F9C96D", "A9BDE6", "A6EBB5", "F9B7B0", "F9E0B0" };
+    public String[]  colors                  = new String[] { "1D4599", "11AD34", "E62B17",
+													          "E69F17", "2F3F60", "2F6C3D", "8F463F", "8F743F", "031A49",
+													          "025214", "6D0D03", "6D4903", "7297E6", "67EB84", "F97A6D",
+													          "F9C96D", "A9BDE6", "A6EBB5", "F9B7B0", "F9E0B0" };
 
     /** Should the plot be colorized */
     public boolean   colorize                = false;
