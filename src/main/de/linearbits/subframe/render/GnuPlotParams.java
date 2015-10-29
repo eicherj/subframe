@@ -66,6 +66,7 @@ public class GnuPlotParams {
         public static final KeyPos BOTTOM_LEFT  = new KeyPos("bottom left");
         public static final KeyPos BOTTOM_RIGHT = new KeyPos("bottom right");
         public static final KeyPos OUTSIDE_TOP  = new KeyPos("out horiz center top");
+        public static final KeyPos OUTSIDE= new KeyPos("out");
         public static final KeyPos NONE         = new KeyPos("none");
 
         public static final KeyPos AT(double x, double y) {
