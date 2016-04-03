@@ -61,6 +61,36 @@ public class Series2D extends Series<Point2D> {
     }
     
     /**
+     * Creates a series by selecting rows and combining some values (x = x1 - x2)
+     * 
+     * @param file
+     * @param selector
+     * @param x1Field
+     * @param x2Field
+     * @param yField
+     */
+    public Series2D(CSVFile file, 
+                    Selector<String[]> selector, 
+                    Field x1Field,  
+                    Field x2Field, 
+                    Field yField){
+        
+        Iterator<CSVLine> iter = file.iterator();
+        while (iter.hasNext()) {
+            CSVLine csvline = iter.next();
+            String[] line = csvline.getData();
+            if (selector.isSelected(line)) {
+                String x1 = csvline.get(x1Field.category, x1Field.measure);
+                String x2 = csvline.get(x2Field.category, x2Field.measure);
+                Double x = Double.parseDouble(x1)- Double.parseDouble(x2);
+                String y = csvline.get(yField.category, yField.measure);
+                if (!Double.isInfinite(Double.parseDouble(y)))
+                	data.add(new Point2D(x.toString(), y));
+            }
+        }
+    }
+    
+    /**
      * Creates a series by selecting rows, 
      * grouping by x and applying the analyzer to y 
      * 
