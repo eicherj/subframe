@@ -61,7 +61,7 @@ public class Series2D extends Series<Point2D> {
     }
     
     /**
-     * Creates a series by selecting rows and combining some values (x = x1 - x2)
+     * Creates a series by selecting rows and combining some values (x = (x1 - x2) / 100)
      * 
      * @param file
      * @param selector
@@ -82,7 +82,7 @@ public class Series2D extends Series<Point2D> {
             if (selector.isSelected(line)) {
                 String x1 = csvline.get(x1Field.category, x1Field.measure);
                 String x2 = csvline.get(x2Field.category, x2Field.measure);
-                Double x = Double.parseDouble(x1)- Double.parseDouble(x2);
+                Double x = (Double.parseDouble(x1)- Double.parseDouble(x2)) / 100d;
                 String y = csvline.get(yField.category, yField.measure);
                 if (!Double.isInfinite(Double.parseDouble(y)))
                 	data.add(new Point2D(x.toString(), y));
